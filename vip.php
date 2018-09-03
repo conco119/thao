@@ -180,7 +180,7 @@ if(@$msg){
 
             </div>
         </div>
-          <!-- /Đã login -->
+          <!-- /Đã login MTD-->
     </div>
   <?php
 include_once 'inc/foot.php';

@@ -1,8 +1,10 @@
 <?php
-include "common/include/head.php";
 include 'inc/init.php';
+include "common/include/head.php";
 if(!$loginCheck)
+{
     lib_redirect("./login.php");
+}
 ?>
 <?php
 $notification = $notification_model->get();

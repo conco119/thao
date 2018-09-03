@@ -1,0 +1,6 @@
+#turn rewirte engine on
+RewriteEngine on
+
+
+#RewriteRule ^admin app/admin/index.php [NC]
+#RewriteRule ^index.php app/site/index.php [NC]

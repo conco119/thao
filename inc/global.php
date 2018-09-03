@@ -34,4 +34,4 @@ $goirule =[
 ];
 $DEFAULT_MSGS = file(dirname(__FILE__).'/../list_comments.txt');
 define("THIS_LINK", "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-define("DOMAIN", "http://$_SERVER[HTTP_HOST]" . "/thao/thatim5");
+define("DOMAIN", "http://$_SERVER[HTTP_HOST]" . "/thao/viplike");

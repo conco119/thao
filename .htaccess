@@ -1,7 +1,15 @@
-
+RewriteEngine on
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the “ea-php72” package as the default “PHP” programming language.
 <IfModule mime_module>
   AddType application/x-httpd-ea-php72 .php .php7 .phtml
 </IfModule>
-# php -- END cPanel-generated handler, do not edit
+#turn rewirte engine on
+
+RewriteRule ^admin/ssh ht/app/admin/index.php?mc=ssh [NC]
+RewriteRule ^admin/quocgia ht/app/admin/index.php?mc=nation [NC]
+RewriteRule ^admin ht/app/admin/index.php [NC]
+RewriteRule ^user/ssh/([0-9]+)/?$ ht/app/site/index.php?mc=ssh&key=$1 [NC,L]
+RewriteRule ^user/ssh ht/app/site/index.php?mc=ssh [NC]
+RewriteRule ^user ht/app/site/index.php [NC]
+

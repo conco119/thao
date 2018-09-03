@@ -27,7 +27,7 @@ class VIP_MODEL extends CLIENT
     function editWhere($set, $where)
     {
         $sql = "UPDATE `vip` " . $set . $where;
-        pre($sql);
+        // pre($sql);
         $this->_sql->query($sql);
     }
 }

@@ -1,45 +1,38 @@
 <?php
 require 'inc/init.php';
 extract($_REQUEST);
-if($loginCheck)
+if ($loginCheck) {
     lib_redirect();
-if(isset($action))
-{
-    switch($action)
-    {
+}
+
+if (isset($action)) {
+    switch ($action) {
         case 'Login':
-            if(isset($username, $password) || isset($token))
-            {
+            if (isset($username, $password) || isset($token)) {
                 @$return = $client->_login($username, $password, trim(@$token));
-                if(isset($return['success']))
-                {
+                if (isset($return['success'])) {
                     $_SESSION['userLogin'] = md5($return['data']->username);
                     $_SESSION['userData'] = $return['data'];
                     $_SESSION['userData']->key = md5($return['data']->username);
-                    lib_redirect();
                 }
                 break;
             }
         case 'Register':
-            if(isset($username, $password,  $repassword) )
-            {
-                if($password != $repassword)
-                {
-                    $return = array('error' => true, 'msg' => 'Mật khẩu nhập lại không đúng.','url'=>'./', 'action' => $_POST);
-                }
-                else
-                {
-                $return = $client->_register($username, $password);
+            if (isset($username, $password, $repassword)) {
+                if ($password != $repassword) {
+                    $return = array('error' => true, 'msg' => 'Mật khẩu nhập lại không đúng.', 'url' => './', 'action' => $_POST);
+                } else {
+                    $return = $client->_register($username, $password);
                 }
                 break;
             }
         default:
-            $return = array('error' => true, 'msg' => 'No action found','url'=>'./', 'action' => $_POST);
+            $return = array('error' => true, 'msg' => 'No action found', 'url' => './', 'action' => $_POST);
             break;
     }
 }
 
- ?>
+?>
 <!doctype html>
 <html lang="en" class="fullscreen-bg">
 
